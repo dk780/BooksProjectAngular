@@ -1,0 +1,50 @@
+<div class="container" style="margin: 100px;">
+    <h2>Book Details</h2>
+    <form [formGroup]="bookForm" (ngSubmit)="OnSubmit()">
+        <div class="form-group">
+            <label for="bookName">Book Name</label>
+            <input type="text" class="form-control" formControlName="Name" id="bookName" placeholder="Enter Name" name="Name">
+          </div>
+          <div class="form-group">
+            <label for="price">Price</label>
+            <input type="number" class="form-control" formControlName="Price" id="price" placeholder="Enter price" name="price">
+          </div>
+          <div class="form-group">
+            <label for="category">Category</label>
+            <input type="text" class="form-control" formControlName="Category" id="category" placeholder="Enter category" name="category">
+          </div>
+          <div class="form-group">
+            <label for="author">Author</label>
+            <input type="text" class="form-control" formControlName="Author" id="bookName" placeholder="Enter Author" name="Name">
+          </div>
+          <button type="submit" class="btn btn-primary">{{btnSave}}</button>
+        </form>
+</div>
+<div>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">S.No.</th>
+            <th scope="col">Book Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Category</th>
+            <th scope="col">Author</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor= "let book of bookList; let i = index;">
+            <td>{{i+1}}</td>
+            <td>{{book.Name}}</td>
+            <td>{{book.Price}}</td>
+            <td>{{book.Category}}</td>
+            <td>{{book.Author}}</td>
+            <td><button (click)= "edit(book.id)">Edit</button></td>
+            <td><button (click)= "delete(book.id)">Delete</button></td>
+
+        </tr>
+    </tbody>
+</table>
+</div>
